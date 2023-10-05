@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Nunito&display=swap');
+
+
+:root {
+    --background: rgba(43, 162, 122, .85);
+    /* --background: orange; */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    /* padding: 0; */
+}
+
+body {
+    background: #222;
+    /* font-family: 'Nunito', sans-serif; */
+    font-family: 'Fugaz One', cursive;
+    font-weight: 400;
+    background-image: radial-gradient(orange, red);
+    /* min-height: 200hv; */
+}
+
+header {
+    background-color: var(--background);
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    /* display: flex; */
+}
+
+nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    padding-left: 2rem;
+    width: 100%;
+    background-color: var(--background);
+    transform: scale(1, 0);
+    /* opacity: 0; */
+    transform-origin: top;
+    transition: all 0.3s ease-in;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav a {
+    color: bisque;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.nav-toggle:checked ~ nav{
+    transform: scale(1, 1);
+    /* opacity: 1; */
+}
+
+.nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out 0.25s;
+}
+.nav-toggle{
+    display: none;
+}
+
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background-color: white;
+    height: 2px;
+    width: 2rem;
+    border-radius: 2px;
+    position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    top: 7px;
+}
+
+.nav-toggle-label span::after {
+    bottom: 7px;
+}
+
+nav a:hover {
+    color: red;
+}
+@media screen and (min-width: 800px){
+    .nav-toggle-label {
+        display: none;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 1fr auto minmax(600px, 7fr) 1fr;
+    }
+
+    .logo {
+        grid-column: 2 / 3;
+    }
+
+    nav {
+        all: unset;
+        grid-column: 3 / 4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        /* border: 2px #333 solid; */
+    }
+
+    nav ul {
+        display: flex;
+        /* justify-content: flex-end; */
+        /* border: 2px #333 solid; */
+
+    }
+
+    nav a {
+        opacity: 1;
+        display: flex;
+        /* border: 2px #333 solid; */
+        padding-left: 1rem;
+        padding-top: 1rem;
+        /* position: relative; */
+        /* border-top: #222 solid; */
+    }
+    nav li {
+        border: 2px #333 solid;
+    }
+
+    nav a::after {
+        /* padding: 2rem; */
+        /* margin: 3rem; */
+        /* border: 2px red solid;
+        content: '';
+        display: block;
+        height: 55px;
+        background: black; */
+        /* position: absolute;
+        top: 1rem; */
+        /* bottom: 0; */
+        /* border-top: #222 solid; */
+        background-color: firebrick;
+    }
+}
